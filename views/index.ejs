@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <form action="/todo" method="post">
+      <label> New Task </label>
+      <input name="todo" type="text">
+      <button type="'submit">Add</button>
+    </form>
+
+    <ul>
+      <% todos.forEach(function(todo){ %>
+        <li>
+          <%=todo.item %>
+          <form action=<%='/todo/' + todo.id %> method='post'>
+            <button>Delete</button>
+          </form>
+        </li>
+      <% }); %>
+    </ul>
+  </body>
+</html>
